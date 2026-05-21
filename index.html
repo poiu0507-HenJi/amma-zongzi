@@ -37,18 +37,18 @@ body{
   background:var(--米白);
   line-height:1.85;
   -webkit-font-smoothing:antialiased;
+  padding-bottom:74px;          /* 留空間給底部固定按鈕 */
 }
 img{max-width:100%;display:block}
-.serif{font-family:"Noto Serif TC",serif}
 
 /* 內容置中容器 */
-.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+.wrap{max-width:620px;margin:0 auto;padding:0 22px}
 
 /* 區塊共用標題 */
 .sec-title{
   font-family:"Noto Serif TC",serif;
   font-weight:900;
-  font-size:clamp(26px,5vw,38px);
+  font-size:clamp(26px,5vw,36px);
   color:var(--紅棕);
   text-align:center;
   margin-bottom:8px;
@@ -58,185 +58,76 @@ img{max-width:100%;display:block}
   color:var(--暖橙);
   font-weight:700;
   letter-spacing:2px;
-  margin-bottom:34px;
+  margin-bottom:30px;
 }
-section{padding:62px 0}
+section{padding:54px 0}
 
-/* ===== 頂部 Hero ===== */
-.hero{
-  background:
-    radial-gradient(circle at 80% 15%, rgba(200,132,47,.18), transparent 55%),
-    linear-gradient(160deg,#8a2c1a 0%,#5c1c11 100%);
-  color:#fff;
-  padding:46px 0 56px;
-  position:relative;
-  overflow:hidden;
-}
-.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:30px}
-.hero-text{flex:1;min-width:280px}
-.hero-tag{
-  display:inline-block;
-  background:var(--粽葉綠);
-  color:#fff;
-  font-weight:700;
-  padding:6px 18px;
-  border-radius:30px;
-  font-size:15px;
-  letter-spacing:3px;
-  margin-bottom:14px;
-}
-.hero-title{
-  font-family:"Noto Serif TC",serif;
-  font-weight:900;
-  font-size:clamp(46px,11vw,76px);
-  line-height:1.1;
-  letter-spacing:3px;
-  text-shadow:0 4px 14px rgba(0,0,0,.4);
-}
-.hero-title .heart{color:#ff7a6b;font-size:.55em;vertical-align:18%}
-.hero-slogan{
-  font-size:clamp(16px,3.4vw,20px);
-  color:#f3d9a8;
-  font-weight:500;
-  letter-spacing:2px;
-  margin:14px 0 24px;
-}
-.hero-img{
-  flex:0 0 300px;
-  max-width:340px;
-  margin:0 auto;
-}
-.hero-img img{
-  width:100%;
-  /* 左上角大圓角，順手把裁切後角落的雜訊修掉 */
-  border-radius:46% 18px 18px 18px;
-  border:5px solid #fbf5e6;
-  box-shadow:0 14px 36px rgba(0,0,0,.45);
-}
-/* 主要行動按鈕 */
+/* 按鈕 */
 .btn{
   display:inline-block;
   background:var(--暖橙);
   color:#fff;
   font-weight:700;
-  font-size:18px;
-  padding:15px 40px;
+  font-size:19px;
+  padding:15px 48px;
   border-radius:40px;
   text-decoration:none;
   letter-spacing:2px;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
-  transition:transform .15s,box-shadow .15s;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:transform .15s;
 }
-.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.38)}
-.btn-lg{font-size:20px;padding:18px 56px}
+.btn:hover{transform:translateY(-2px)}
 
-/* ===== 故事段 ===== */
-.story{background:var(--米白);text-align:center}
-.story h2{
-  font-family:"Noto Serif TC",serif;
-  font-weight:700;
-  font-size:clamp(24px,5vw,34px);
-  color:var(--紅棕);
-  margin-bottom:24px;
+/* ===== 海報（直接呈現原圖，不裁切） ===== */
+.poster{background:var(--米深);text-align:center}
+.poster img{width:100%;max-width:620px;margin:0 auto}
+
+/* 海報下方行動呼籲 */
+.cta-bar{
+  background:var(--紅棕);
+  text-align:center;
+  padding:30px 22px;
 }
-.story p{
-  max-width:600px;margin:0 auto 16px;
-  font-size:17px;color:#5a4636;
-}
-.story .big{
-  font-family:"Noto Serif TC",serif;
-  font-size:clamp(20px,4vw,26px);
-  color:var(--紅);
-  font-weight:700;
-  margin-top:26px;
+.cta-bar p{
+  color:#f3d9a8;font-weight:500;letter-spacing:1px;margin-bottom:16px;
 }
 
-/* ===== 價格方案 ===== */
-.price{background:var(--米深)}
+/* ===== 預購價格 ===== */
+.price{background:var(--米白)}
 .plans{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:16px;
 }
 .plan{
   background:#fff;
   border-radius:18px;
-  padding:34px 18px;
+  padding:32px 12px;
   text-align:center;
   box-shadow:0 8px 22px rgba(122,38,24,.12);
   border:2px solid transparent;
   position:relative;
 }
-.plan.hot{border-color:var(--暖橙);transform:scale(1.04)}
+.plan.hot{border-color:var(--暖橙)}
 .plan .badge{
   position:absolute;top:-14px;left:50%;transform:translateX(-50%);
   background:var(--紅);color:#fff;font-size:13px;font-weight:700;
   padding:4px 16px;border-radius:20px;white-space:nowrap;
 }
-.plan .qty{font-size:20px;font-weight:700;color:var(--紅棕);margin-bottom:6px}
+.plan .qty{font-size:18px;font-weight:700;color:var(--紅棕);margin-bottom:6px}
 .plan .num{
   font-family:"Noto Serif TC",serif;font-weight:900;
-  font-size:46px;color:var(--紅棕);line-height:1;
+  font-size:42px;color:var(--紅棕);line-height:1;
 }
-.plan .num small{font-size:18px;font-weight:700}
-.plan .gift{
-  margin-top:12px;font-size:14px;color:var(--粽葉綠);font-weight:700;
-}
-.price-note{text-align:center;margin-top:26px;color:#7a6450;font-size:15px}
-
-/* ===== 嚴選食材 ===== */
-.materials{background:var(--米白)}
-.mat-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-.mat{
-  background:var(--米深);
-  border-radius:16px;
-  padding:24px 8px;
-  text-align:center;
-}
-.mat .ic{font-size:42px;line-height:1;margin-bottom:8px}
-.mat .nm{font-weight:700;color:var(--紅棕);font-size:17px}
-.mat-quote{
-  text-align:center;margin-top:30px;
-  font-family:"Noto Serif TC",serif;font-weight:700;
-  font-size:clamp(19px,4vw,24px);color:var(--紅棕);
-}
-
-/* ===== 堅持手工 ===== */
-.craft{background:var(--粽葉綠);color:#fff}
-.craft .sec-title{color:#fff}
-.craft .sec-sub{color:#dfe7c2}
-.craft-list{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;max-width:680px;margin:0 auto;
-}
-.craft-item{
-  background:rgba(255,255,255,.12);
-  border-radius:12px;padding:16px 20px;
-  font-weight:500;font-size:16px;
-}
-.craft-item b{color:#ffe08a}
-
-/* ===== 保存方式 ===== */
-.keep{background:var(--米深);text-align:center}
-.keep-box{
-  max-width:560px;margin:0 auto;
-  background:#fff;border-radius:18px;padding:36px 26px;
-  box-shadow:0 8px 22px rgba(122,38,24,.1);
-}
-.keep-box .ic{font-size:50px}
-.keep-box p{font-size:17px;margin-top:10px;color:#5a4636}
-.keep-box .warn{color:var(--紅);font-weight:700;margin-top:14px}
+.plan .num small{font-size:17px;font-weight:700}
+.plan .gift{margin-top:10px;font-size:13px;color:var(--粽葉綠);font-weight:700}
+.price-note{text-align:center;margin-top:24px;color:#7a6450;font-size:15px}
 
 /* ===== 訂購表單 ===== */
-.order{background:var(--米白)}
+.order{background:var(--米深)}
 .pay-info{
-  max-width:620px;margin:0 auto 30px;
   background:#fff6e2;border:2px dashed var(--暖橙);
-  border-radius:14px;padding:22px 26px;
+  border-radius:14px;padding:22px 24px;margin-bottom:26px;
 }
 .pay-info h3{color:var(--紅棕);font-size:18px;margin-bottom:10px}
 .pay-info ol{margin-left:20px;font-size:15px;color:#5a4636}
@@ -248,8 +139,7 @@ section{padding:62px 0}
 .pay-acct b{color:var(--紅棕)}
 
 form{
-  max-width:620px;margin:0 auto;
-  background:#fff;border-radius:18px;padding:34px 28px;
+  background:#fff;border-radius:18px;padding:32px 26px;
   box-shadow:0 10px 30px rgba(122,38,24,.14);
 }
 .field{margin-bottom:20px}
@@ -265,8 +155,7 @@ form{
   background:var(--米白);
 }
 .field input:focus,.field textarea:focus{
-  outline:none;border-color:var(--暖橙);
-  background:#fff;
+  outline:none;border-color:var(--暖橙);background:#fff;
 }
 .field textarea{resize:vertical;min-height:64px}
 
@@ -279,11 +168,10 @@ form{
 }
 .qty-row .label{font-weight:700;color:var(--紅棕)}
 .qty-row .label small{display:block;font-weight:500;color:#8a7458;font-size:13px}
-.stepper{display:flex;align-items:center;gap:0}
+.stepper{display:flex;align-items:center}
 .stepper button{
   width:38px;height:38px;border:none;cursor:pointer;
-  background:var(--紅棕);color:#fff;font-size:22px;font-weight:700;
-  line-height:1;
+  background:var(--紅棕);color:#fff;font-size:22px;font-weight:700;line-height:1;
 }
 .stepper button:first-child{border-radius:8px 0 0 8px}
 .stepper button:last-child{border-radius:0 8px 8px 0}
@@ -300,7 +188,6 @@ form{
   padding:16px 20px;display:flex;justify-content:space-between;
   align-items:center;margin:20px 0;
 }
-.total-box .t-label{font-weight:500}
 .total-box .t-num{
   font-family:"Noto Serif TC",serif;font-weight:900;font-size:30px;
 }
@@ -308,17 +195,14 @@ form{
   width:100%;background:var(--暖橙);color:#fff;border:none;
   font-family:inherit;font-weight:700;font-size:19px;letter-spacing:2px;
   padding:16px;border-radius:40px;cursor:pointer;
-  box-shadow:0 8px 20px rgba(200,132,47,.4);
-  transition:transform .15s;
+  box-shadow:0 8px 20px rgba(200,132,47,.4);transition:transform .15s;
 }
 .submit-btn:hover{transform:translateY(-2px)}
 .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .form-hint{text-align:center;font-size:13px;color:#8a7458;margin-top:14px}
 
 /* 送出結果訊息 */
-.form-msg{
-  display:none;text-align:center;padding:30px 20px;
-}
+.form-msg{display:none;text-align:center;padding:30px 20px}
 .form-msg .ic{font-size:56px}
 .form-msg h3{
   font-family:"Noto Serif TC",serif;color:var(--紅棕);
@@ -328,62 +212,55 @@ form{
 .form-msg.show{display:block}
 
 /* ===== 頁尾 ===== */
-footer{background:var(--紅棕深);color:#f3d9a8;text-align:center;padding:46px 0}
-footer .contact{
-  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:22px;
-}
+footer{background:var(--紅棕深);color:#f3d9a8;text-align:center;padding:38px 22px}
+footer .contact{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 footer .contact a{
   display:flex;align-items:center;gap:8px;
   background:rgba(255,255,255,.12);color:#fff;text-decoration:none;
-  padding:12px 24px;border-radius:30px;font-weight:700;
+  padding:11px 22px;border-radius:30px;font-weight:700;
 }
 footer .contact a:hover{background:rgba(255,255,255,.22)}
-footer .small{font-size:13px;color:#c79d7a;margin-top:8px}
-footer .dm{max-width:380px;margin:26px auto 0;border-radius:14px;overflow:hidden}
+footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
+
+/* ===== 底部固定預購按鈕 ===== */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(92,28,17,.97);
+  padding:11px 16px;text-align:center;
+  box-shadow:0 -4px 16px rgba(0,0,0,.28);
+}
+.sticky-cta a{
+  display:block;max-width:560px;margin:0 auto;
+  background:var(--暖橙);color:#fff;text-decoration:none;
+  font-weight:700;font-size:18px;letter-spacing:2px;
+  padding:13px;border-radius:34px;
+}
 
 /* ===== 手機版微調 ===== */
-@media(max-width:680px){
-  section{padding:46px 0}
-  .plans{grid-template-columns:1fr;gap:26px}
-  .plan.hot{transform:none}
-  .mat-grid{grid-template-columns:repeat(2,1fr)}
-  .hero{padding:34px 0 44px}
-  .hero-img{flex:0 0 auto;max-width:260px}
+@media(max-width:560px){
+  section{padding:42px 0}
+  .plans{grid-template-columns:1fr;gap:24px}
 }
 </style>
 </head>
 <body>
 
-<!-- ============ Hero 主視覺 ============ -->
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-text">
-      <span class="hero-tag">端午限定 · 手工製作</span>
-      <h1 class="hero-title">阿嬤的<br>味道<span class="heart">❤</span></h1>
-      <p class="hero-slogan">傳統古早味 · 真材實料 · 手工慢慢包</p>
-      <a href="#order" class="btn btn-lg">立即預購 ❤</a>
-    </div>
-    <div class="hero-img">
-      <img src="images/hero-zongzi.jpg" alt="阿嬤的味道手工粽，滿滿干貝、鹹蛋黃、栗子、五花肉">
-    </div>
-  </div>
+<!-- ============ 海報（原圖直接呈現） ============ -->
+<header class="poster">
+  <img src="images/dm.jpg" alt="端午限定 阿嬤的味道 古早味手工粽 — 真材實料、手工慢慢包">
 </header>
 
-<!-- ============ 故事 ============ -->
-<section class="story">
-  <div class="wrap">
-    <h2>吃一口，<br>就想起阿嬤的味道…</h2>
-    <p>有些味道，吃過一次就忘不了。那不是什麼山珍海味，而是小時候記憶裡，阿嬤灶腳傳出的香氣。</p>
-    <p>我們堅持使用真材實料，慢火滷製、手工炒料、每日新鮮現包。每一顆粽子，都包進滿滿的心意與家的味道。</p>
-    <p class="big">今年端午，把想念的人、<br>想念的味道，再包回來一次。</p>
-  </div>
-</section>
+<!-- ============ 海報下方行動呼籲 ============ -->
+<div class="cta-bar">
+  <p>數量有限 · 售完為止 · 想吃的快來預訂 ❤</p>
+  <a href="#order" class="btn">立即預購 ❤</a>
+</div>
 
 <!-- ============ 預購價格 ============ -->
 <section class="price" id="price">
   <div class="wrap">
     <h2 class="sec-title">粽子預購價格</h2>
-    <p class="sec-sub">數量有限 · 售完為止</p>
+    <p class="sec-sub">真材實料 · 每一口都吃得到幸福</p>
     <div class="plans">
       <div class="plan">
         <div class="qty">單顆嚐鮮</div>
@@ -403,53 +280,6 @@ footer .dm{max-width:380px;margin:26px auto 0;border-radius:14px;overflow:hidden
       </div>
     </div>
     <p class="price-note">📦 冷凍宅配，運費另計（下單後將與您聯繫確認）</p>
-  </div>
-</section>
-
-<!-- ============ 嚴選食材 ============ -->
-<section class="materials">
-  <div class="wrap">
-    <h2 class="sec-title">嚴選食材 · 用心製作</h2>
-    <p class="sec-sub">真材實料，每一口都吃得到幸福</p>
-    <div class="mat-grid">
-      <div class="mat"><div class="ic">🥩</div><div class="nm">五花肉</div></div>
-      <div class="mat"><div class="ic">🥚</div><div class="nm">鹹蛋黃</div></div>
-      <div class="mat"><div class="ic">🌰</div><div class="nm">栗子</div></div>
-      <div class="mat"><div class="ic">🦪</div><div class="nm">干貝</div></div>
-      <div class="mat"><div class="ic">🍄</div><div class="nm">香菇</div></div>
-      <div class="mat"><div class="ic">🦐</div><div class="nm">蝦米</div></div>
-      <div class="mat"><div class="ic">🦑</div><div class="nm">魷魚</div></div>
-      <div class="mat"><div class="ic">🍚</div><div class="nm">糯米</div></div>
-    </div>
-    <p class="mat-quote">真材實料，每一口都吃得到幸福！</p>
-  </div>
-</section>
-
-<!-- ============ 堅持手工 ============ -->
-<section class="craft">
-  <div class="wrap">
-    <h2 class="sec-title">堅持手工製作</h2>
-    <p class="sec-sub">一顆一顆，慢慢包</p>
-    <div class="craft-list">
-      <div class="craft-item">✔ <b>嚴選</b>新鮮食材</div>
-      <div class="craft-item">✔ 純手工炒料 · <b>慢火滷製</b></div>
-      <div class="craft-item">✔ 傳統古法包製</div>
-      <div class="craft-item">✔ <b>不添加</b>防腐劑</div>
-      <div class="craft-item">✔ 當天現包 · 新鮮出貨</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 保存方式 ============ -->
-<section class="keep">
-  <div class="wrap">
-    <h2 class="sec-title">保存方式</h2>
-    <p class="sec-sub">收到後這樣存就對了</p>
-    <div class="keep-box">
-      <div class="ic">❄️</div>
-      <p><b>冷凍保存</b>，要吃時加熱即可享用。</p>
-      <p class="warn">📦 冷凍宅配運費另計 · 數量有限，售完為止</p>
-    </div>
   </div>
 </section>
 
@@ -522,7 +352,7 @@ footer .dm{max-width:380px;margin:26px auto 0;border-radius:14px;overflow:hidden
       </div>
 
       <div class="total-box">
-        <span class="t-label">商品金額小計（不含運費）</span>
+        <span>商品金額小計（不含運費）</span>
         <span class="t-num">NT$ <span id="totalNum">0</span></span>
       </div>
 
@@ -553,24 +383,24 @@ footer .dm{max-width:380px;margin:26px auto 0;border-radius:14px;overflow:hidden
 
 <!-- ============ 頁尾 ============ -->
 <footer>
-  <div class="wrap">
-    <div class="contact">
-      <!-- ⬇ 請改成你的真實 LINE 連結與電話 ⬇ -->
-      <a href="https://line.me/R/" target="_blank" rel="noopener">💬 LINE 私訊訂購</a>
-      <a href="tel:0000000000">📞 電話訂購</a>
-    </div>
-    <p class="serif" style="font-size:22px;color:#fff">阿嬤的味道 ❤</p>
-    <p class="small">傳統古早味 · 真材實料 · 手工慢慢包</p>
-    <p class="small">今年端午，一起吃粽子！</p>
-    <div class="dm"><img src="images/dm.jpg" alt="阿嬤的味道端午粽完整介紹"></div>
+  <!-- ⬇ 請改成你的真實 LINE 連結與電話 ⬇ -->
+  <div class="contact">
+    <a href="https://line.me/R/" target="_blank" rel="noopener">💬 LINE 私訊訂購</a>
+    <a href="tel:0000000000">📞 電話訂購</a>
   </div>
+  <p class="small">阿嬤的味道 ❤ 傳統古早味 · 真材實料 · 手工慢慢包</p>
+  <p class="small">今年端午，一起吃粽子！</p>
 </footer>
+
+<!-- ============ 底部固定預購按鈕 ============ -->
+<div class="sticky-cta">
+  <a href="#order">立即預購 ❤</a>
+</div>
 
 <script>
 /* =========================================================
-   訂購表單程式
-   ★ 部署 Google Apps Script 後，把下面的網址換成你的 Web App 網址
-   （詳細步驟看同資料夾的「google-apps-script.md」）
+   訂購表單程式 — 訂單會送進 Google 試算表
+   （若要換收單試算表，改下面這行的 Apps Script 網址即可）
    ========================================================= */
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw_tf82x7vZSzKGLiN_aQj9UGK1RACME4oDt-_xqx4R3KAQjUr4EX3w_CSwT9iDjYQ/exec";
 
@@ -604,12 +434,10 @@ const form = document.getElementById('orderForm');
 form.addEventListener('submit', async function(e){
   e.preventDefault();
 
-  // 至少要選一份
   if (updateTotal() <= 0){
     alert('請至少選擇一份粽子數量 ❤');
     return;
   }
-  // 還沒設定 Apps Script 網址時的提醒
   if (SHEET_WEBHOOK_URL.indexOf('http') !== 0){
     alert('訂購系統設定中，暫時請改用下方 LINE 或電話訂購，謝謝 ❤');
     return;
