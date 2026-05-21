@@ -94,33 +94,54 @@ section{padding:54px 0}
 
 /* ===== 預購價格 ===== */
 .price{background:var(--米白)}
-.plans{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.plan{
-  background:#fff;
-  border-radius:18px;
-  padding:32px 12px;
-  text-align:center;
-  box-shadow:0 8px 22px rgba(122,38,24,.12);
-  border:2px solid transparent;
+
+/* 主推大卡（20 顆 · 人氣首選），含放大的贈品小菜照片 */
+.plan-hero{
   position:relative;
+  display:flex;
+  background:#fff;
+  border:3px solid var(--暖橙);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 14px 32px rgba(122,38,24,.2);
+  margin-bottom:18px;
 }
-.plan.hot{border-color:var(--暖橙)}
-.plan .badge{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--紅);color:#fff;font-size:13px;font-weight:700;
-  padding:4px 16px;border-radius:20px;white-space:nowrap;
+.ph-badge{
+  position:absolute;top:0;left:0;z-index:2;
+  background:var(--紅);color:#fff;font-weight:700;font-size:14px;
+  padding:7px 20px;border-radius:0 0 16px 0;letter-spacing:1px;
 }
-.plan .qty{font-size:18px;font-weight:700;color:var(--紅棕);margin-bottom:6px}
+.ph-img{flex:0 0 46%}
+.ph-img img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.ph-info{
+  flex:1;padding:34px 22px 28px;text-align:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+}
+.ph-qty{font-size:19px;font-weight:700;color:var(--紅棕)}
+.ph-num{
+  font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:54px;color:var(--紅棕);line-height:1.1;
+}
+.ph-num small{font-size:20px;font-weight:700}
+.ph-gift{
+  background:var(--粽葉綠);color:#fff;font-weight:700;font-size:15px;
+  padding:8px 18px;border-radius:30px;margin:14px 0 18px;
+}
+.ph-info .btn{font-size:17px;padding:12px 40px}
+
+/* 次要方案（1 顆 / 10 顆） */
+.plans-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.plan{
+  background:#fff;border-radius:18px;padding:26px 12px;text-align:center;
+  box-shadow:0 8px 22px rgba(122,38,24,.12);
+}
+.plan .qty{font-size:17px;font-weight:700;color:var(--紅棕);margin-bottom:6px}
 .plan .num{
   font-family:"Noto Serif TC",serif;font-weight:900;
-  font-size:42px;color:var(--紅棕);line-height:1;
+  font-size:40px;color:var(--紅棕);line-height:1;
 }
-.plan .num small{font-size:17px;font-weight:700}
-.plan .gift{margin-top:10px;font-size:13px;color:var(--粽葉綠);font-weight:700}
+.plan .num small{font-size:16px;font-weight:700}
+.plan .gift{margin-top:8px;font-size:13px;color:#8a7458;font-weight:700}
 .price-note{text-align:center;margin-top:24px;color:#7a6450;font-size:15px}
 
 /* ===== 訂購表單 ===== */
@@ -239,7 +260,9 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
 /* ===== 手機版微調 ===== */
 @media(max-width:560px){
   section{padding:42px 0}
-  .plans{grid-template-columns:1fr;gap:24px}
+  .plan-hero{flex-direction:column}
+  .ph-img{flex:auto}
+  .ph-img img{min-height:300px}
 }
 </style>
 </head>
@@ -261,22 +284,31 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
   <div class="wrap">
     <h2 class="sec-title">粽子預購價格</h2>
     <p class="sec-sub">真材實料 · 每一口都吃得到幸福</p>
-    <div class="plans">
+    <!-- 主推：20 顆 · 人氣首選，贈品小菜照片放大呈現 -->
+    <div class="plan-hero">
+      <span class="ph-badge">🔥 人氣首選</span>
+      <div class="ph-img">
+        <img src="images/side-dish.jpg" alt="20 顆方案加贈的招牌手工小菜">
+      </div>
+      <div class="ph-info">
+        <div class="ph-qty">20 顆 · 送禮最划算</div>
+        <div class="ph-num"><small>NT$</small>1700</div>
+        <div class="ph-gift">加贈 ❤ 招牌手工小菜一份</div>
+        <a href="#order" class="btn">立即預購</a>
+      </div>
+    </div>
+
+    <!-- 1 顆 / 10 顆 -->
+    <div class="plans-2">
       <div class="plan">
         <div class="qty">單顆嚐鮮</div>
         <div class="num"><small>NT$</small>80</div>
         <div class="gift">1 顆</div>
       </div>
-      <div class="plan hot">
-        <div class="badge">人氣首選</div>
+      <div class="plan">
         <div class="qty">家庭分享</div>
         <div class="num"><small>NT$</small>850</div>
         <div class="gift">10 顆</div>
-      </div>
-      <div class="plan">
-        <div class="qty">送禮加贈</div>
-        <div class="num"><small>NT$</small>1700</div>
-        <div class="gift">20 顆 ❤ 加贈小蘿蔔一杯</div>
       </div>
     </div>
     <p class="price-note">📦 冷凍宅配，運費另計（下單後將與您聯繫確認）</p>
@@ -341,7 +373,7 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
             </div>
           </div>
           <div class="qty-row">
-            <div class="label">20 顆 <small>NT$1700 / 份 · 加贈小蘿蔔一杯</small></div>
+            <div class="label">20 顆 <small>NT$1700 / 份 · 加贈招牌手工小菜</small></div>
             <div class="stepper">
               <button type="button" data-step="-1" data-target="qty20">−</button>
               <input type="number" id="qty20" name="qty20" value="0" min="0" readonly>
@@ -383,10 +415,9 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
 
 <!-- ============ 頁尾 ============ -->
 <footer>
-  <!-- ⬇ 請改成你的真實 LINE 連結與電話 ⬇ -->
   <div class="contact">
-    <a href="https://line.me/R/" target="_blank" rel="noopener">💬 LINE 私訊訂購</a>
-    <a href="tel:0000000000">📞 電話訂購</a>
+    <a href="https://line.me/ti/p/~jiajia1224" target="_blank" rel="noopener">💬 LINE：jiajia1224</a>
+    <a href="tel:0952314491">📞 0952314491</a>
   </div>
   <p class="small">阿嬤的味道 ❤ 傳統古早味 · 真材實料 · 手工慢慢包</p>
   <p class="small">今年端午，一起吃粽子！</p>
