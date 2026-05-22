@@ -144,6 +144,45 @@ section{padding:54px 0}
 .plan .gift{margin-top:8px;font-size:13px;color:#8a7458;font-weight:700}
 .price-note{text-align:center;margin-top:24px;color:#7a6450;font-size:15px}
 
+/* 加購小菜卡片 */
+.addon-card{
+  display:flex;align-items:stretch;
+  background:#fff;border:2px solid var(--粽葉綠);
+  border-radius:16px;overflow:hidden;margin-top:16px;
+  box-shadow:0 8px 22px rgba(122,38,24,.12);
+}
+.addon-img{flex:0 0 38%}
+.addon-img img{width:100%;height:100%;min-height:150px;object-fit:cover}
+.addon-info{
+  flex:1;padding:18px 20px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.addon-tag{
+  align-self:flex-start;background:var(--粽葉綠);color:#fff;
+  font-weight:700;font-size:13px;padding:3px 12px;border-radius:20px;margin-bottom:6px;
+}
+.addon-name{
+  font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:21px;color:var(--紅棕);
+}
+.addon-desc{font-size:13.5px;color:#7a6450;margin:4px 0 8px;line-height:1.6}
+.addon-price{
+  font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:30px;color:var(--暖橙);
+}
+.addon-price small{font-size:15px}
+.addon-price span{
+  font-size:14px;font-weight:700;color:#7a6450;
+  font-family:"Noto Sans TC",sans-serif;
+}
+
+/* 費用明細 */
+.cost-lines{margin:18px 0 10px;font-size:15px;color:#5a4636}
+.cost-lines div{
+  display:flex;justify-content:space-between;
+  padding:7px 4px;border-bottom:1px dashed #e2d3b2;
+}
+
 /* ===== 訂購表單 ===== */
 .order{background:var(--米深)}
 .pay-info{
@@ -231,6 +270,16 @@ form{
 }
 .form-msg p{color:#5a4636}
 .form-msg.show{display:block}
+/* 成功訊息裡的「加入 LINE 接收通知」按鈕 */
+.line-notify{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#06c755;color:#fff;text-decoration:none;
+  font-weight:700;font-size:17px;letter-spacing:1px;
+  padding:14px 30px;border-radius:40px;margin:18px 0 4px;
+  box-shadow:0 8px 20px rgba(6,199,85,.35);transition:transform .15s;
+}
+.line-notify:hover{transform:translateY(-2px)}
+.form-msg .notify-tip{font-size:13px;color:#8a7458;margin-top:6px}
 
 /* ===== 頁尾 ===== */
 footer{background:var(--紅棕深);color:#f3d9a8;text-align:center;padding:38px 22px}
@@ -302,7 +351,7 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
     <div class="plans-2">
       <div class="plan">
         <div class="qty">單顆嚐鮮</div>
-        <div class="num"><small>NT$</small>80</div>
+        <div class="num"><small>NT$</small>85</div>
         <div class="gift">1 顆</div>
       </div>
       <div class="plan">
@@ -311,7 +360,21 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
         <div class="gift">10 顆</div>
       </div>
     </div>
-    <p class="price-note">📦 冷凍宅配，運費另計（下單後將與您聯繫確認）</p>
+
+    <!-- 加購小菜（可在訂購表單一起加買；圖片素材待客戶提供，先用小菜照暫代） -->
+    <div class="addon-card">
+      <div class="addon-img">
+        <img src="images/side-dish.jpg" alt="加購 — 阿嬤招牌手工小菜">
+      </div>
+      <div class="addon-info">
+        <span class="addon-tag">➕ 加購</span>
+        <div class="addon-name">招牌手工小菜</div>
+        <div class="addon-desc">阿嬤的手路菜，配粽子剛剛好。訂購時可一起加買。</div>
+        <div class="addon-price"><small>NT$</small>200 <span>/ 份</span></div>
+      </div>
+    </div>
+
+    <p class="price-note">🚚 採 7-11 冷凍店到店取貨，每筆訂單運費 NT$150</p>
   </div>
 </section>
 
@@ -319,7 +382,7 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
 <section class="order" id="order">
   <div class="wrap">
     <h2 class="sec-title">我要預購 ❤</h2>
-    <p class="sec-sub">填寫表單 · 完成匯款 · 等粽子到家</p>
+    <p class="sec-sub">填寫表單 · 完成匯款 · 7-11 取貨</p>
 
     <!-- 訂購流程＋匯款資訊 -->
     <div class="pay-info">
@@ -328,7 +391,7 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
         <li>填寫並送出下方訂購表單</li>
         <li>將款項匯款至下列指定帳戶</li>
         <li>在表單填入「轉帳後五碼」，方便我們對帳</li>
-        <li>確認收款後，安排冷凍宅配（運費另計，會再與您聯繫）</li>
+        <li>確認收款後，安排 7-11 冷凍店到店出貨，並通知您到門市取貨</li>
       </ol>
       <!-- 匯款帳戶（日後要換帳戶改這三行即可） -->
       <div class="pay-acct">
@@ -349,15 +412,15 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
         <input type="tel" name="phone" required placeholder="手機或市話">
       </div>
       <div class="field">
-        <label>宅配地址 <span class="req">*</span></label>
-        <input type="text" name="address" required placeholder="收件完整地址（含郵遞區號）">
+        <label>7-11 取貨門市 <span class="req">*</span></label>
+        <input type="text" name="store" required placeholder="例：松山門市（填門市名稱或店號）">
       </div>
 
       <div class="field">
         <label>選擇數量 <span class="req">*</span></label>
         <div class="qty-rows">
           <div class="qty-row">
-            <div class="label">1 顆 <small>NT$80 / 份</small></div>
+            <div class="label">1 顆 <small>NT$85 / 份</small></div>
             <div class="stepper">
               <button type="button" data-step="-1" data-target="qty1">−</button>
               <input type="number" id="qty1" name="qty1" value="0" min="0" readonly>
@@ -380,11 +443,24 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
               <button type="button" data-step="1" data-target="qty20">＋</button>
             </div>
           </div>
+          <div class="qty-row">
+            <div class="label">加購小菜 <small>NT$200 / 份 · 招牌手工小菜</small></div>
+            <div class="stepper">
+              <button type="button" data-step="-1" data-target="addon">−</button>
+              <input type="number" id="addon" name="addon" value="0" min="0" readonly>
+              <button type="button" data-step="1" data-target="addon">＋</button>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- 費用明細：商品小計 + 冷凍運費 = 應付總額 -->
+      <div class="cost-lines">
+        <div><span>商品小計</span><span>NT$ <span id="goodsNum">0</span></span></div>
+        <div><span>冷凍運費（7-11 店到店）</span><span id="freightText">—</span></div>
+      </div>
       <div class="total-box">
-        <span>商品金額小計（不含運費）</span>
+        <span>應付總額</span>
         <span class="t-num">NT$ <span id="totalNum">0</span></span>
       </div>
 
@@ -398,6 +474,8 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
         <textarea name="note" placeholder="有什麼想告訴我們的，寫在這裡 ❤"></textarea>
       </div>
 
+      <input type="hidden" name="goods" id="goodsHidden" value="0">
+      <input type="hidden" name="freight" id="freightHidden" value="0">
       <input type="hidden" name="total" id="totalHidden" value="0">
 
       <button type="submit" class="submit-btn" id="submitBtn">送出預購單 ❤</button>
@@ -408,7 +486,9 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
     <div class="form-msg" id="formMsg">
       <div class="ic">🎉</div>
       <h3>預購單已收到！</h3>
-      <p>謝謝您的訂購 ❤<br>請記得完成匯款，我們確認收款後會儘快與您聯繫安排宅配。</p>
+      <p>謝謝您的訂購 ❤<br>請記得完成匯款，確認收款後會安排 7-11 冷凍店到店出貨。</p>
+      <a class="line-notify" href="https://line.me/ti/p/~jiajia1224" target="_blank" rel="noopener">💬 加入 LINE，接收訂單通知</a>
+      <p class="notify-tip">加入後我們會用 LINE 通知您「已收到訂單」、對帳結果與取貨進度</p>
     </div>
   </div>
 </section>
@@ -435,8 +515,10 @@ footer .small{font-size:13px;color:#c79d7a;margin-top:6px}
    ========================================================= */
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw_tf82x7vZSzKGLiN_aQj9UGK1RACME4oDt-_xqx4R3KAQjUr4EX3w_CSwT9iDjYQ/exec";
 
-// 三種方案的單價
-const PRICE = { qty1: 80, qty10: 850, qty20: 1700 };
+// 各品項的單價（粽子三方案 + 加購小菜）
+const PRICE = { qty1: 85, qty10: 850, qty20: 1700, addon: 200 };
+// 冷凍運費：採 7-11 店到店，每筆訂單固定收這個金額
+const FREIGHT = 150;
 
 // 數量加減按鈕
 document.querySelectorAll('.stepper button').forEach(function(b){
@@ -449,15 +531,23 @@ document.querySelectorAll('.stepper button').forEach(function(b){
   });
 });
 
-// 重新計算總金額
+// 重新計算金額：商品小計 + 冷凍運費 = 應付總額
 function updateTotal(){
-  let total = 0;
+  let goods = 0;
   for (const key in PRICE){
-    total += (parseInt(document.getElementById(key).value) || 0) * PRICE[key];
+    goods += (parseInt(document.getElementById(key).value) || 0) * PRICE[key];
   }
+  // 有買東西才收運費，沒選任何品項時運費為 0
+  const freight = goods > 0 ? FREIGHT : 0;
+  const total = goods + freight;
+
+  document.getElementById('goodsNum').textContent = goods.toLocaleString();
+  document.getElementById('freightText').textContent = freight > 0 ? ('NT$ ' + freight) : '—';
   document.getElementById('totalNum').textContent = total.toLocaleString();
+  document.getElementById('goodsHidden').value = goods;
+  document.getElementById('freightHidden').value = freight;
   document.getElementById('totalHidden').value = total;
-  return total;
+  return goods;   // 回傳商品小計，給送出時判斷有沒有選東西
 }
 
 // 送出表單
